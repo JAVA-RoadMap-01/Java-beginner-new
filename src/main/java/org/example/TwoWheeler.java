@@ -6,11 +6,11 @@ public class TwoWheeler extends Vehicle
 {
     private Boolean gears;
     
-    
-    public TwoWheeler() {
-        
+    @Override
+    public void start(){
+        System.out.println("TwoWheeler started");
     }
-    
+        
     public static void main(String[] args)
     {
         TwoWheeler obj = new TwoWheeler();

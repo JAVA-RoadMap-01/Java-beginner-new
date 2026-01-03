@@ -4,6 +4,14 @@ public class FourWheeler extends Vehicle {
     private Boolean manual;
     private Boolean airConditioned;
 
+    public void start(String manual){
+        if(this.manual){
+            System.out.println("FourWheeler started in manual mode");
+        }
+        else{
+            System.out.println("FourWheeler started in automatic mode");
+        }
+    }
     public static void main(String[] args){
         FourWheeler car = new FourWheeler();
         car.setVehicleType("4x4");
@@ -18,6 +26,7 @@ public class FourWheeler extends Vehicle {
         System.out.println("Manual: "+ car.manual);
         System.out.println("Air conditioned :"+ car.airConditioned);
         car.start();
+        car.start("false");
         car.stop();
     }
 
