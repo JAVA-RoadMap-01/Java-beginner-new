@@ -14,10 +14,8 @@ public class Customer {
         this.customerEmail = customerEmail;
     }
 
-    public void displayCustomerDetails(){
-        System.out.println("Customer Name:" + customerName);
-        System.out.println(":Customer Address" + customerAddress);
-        System.out.println("Customer Phone Number:" + customerPhoneNumber);
-        System.out.println("Customer Email:" + customerEmail);
+    @Override
+    public String toString(){
+        return "Customer details [Customer Name=" + customerName + ", Customer Address=" + customerAddress + ", Customer Phone Number = " + customerPhoneNumber + ", Customer Email=" + customerEmail + "]";
     }
 }
