@@ -17,7 +17,7 @@ public class Maps {
 
         System.out.println("Marks of all students:" + marks);
         marks.put("Studen7", 70);
-        
+
         List<Map.Entry<String, Integer>> marklist = new ArrayList<>(marks.entrySet());
         // Collections.sort(marklist, Map.Entry.comparingByValue());
         // System.out.println("Sorted Marks List: " + marklist);
@@ -30,6 +30,10 @@ public class Maps {
         System.out.println("Marks after adding Student7: " + marks);
         marklist.sort(Map.Entry.comparingByValue());
         System.out.println("Updated Sorted Marks List: " + marklist);
+
+        for(Map.Entry<String, Integer> entry : marks.entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
 
     }
 }
