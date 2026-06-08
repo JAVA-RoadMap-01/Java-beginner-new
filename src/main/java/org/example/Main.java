@@ -1,17 +1,42 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.sql.*;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+    
+
+    private static final String url = "jdbc:mysql://localhost:3306/mydb";
+    private static final String username = "root" ;
+    private static final String  password = "Tweety@663";
+
+    public static void main(String args[]){
+             
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try{
+            
+            Connection connection =DriverManager.getConnection(url,username,password);
+            String query = "INSERT INTO students(name,age,marks) VALUES(?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1,"Abhijeet");
+            preparedStatement.setInt(2,25);
+            preparedStatement.setDouble(3,90.1);
+
+            int resultSet = preparedStatement.executeUpdate();
+            if(resultSet>0){
+                System.out.println("Data Inserted Successfully");
+            }
+            else{
+                System.out.println("Data not inserted");
+            }
+
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
         }
     }
 }

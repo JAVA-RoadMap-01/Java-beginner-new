@@ -1,0 +1,46 @@
+JDBC
+
+types of JDBC:
+    -Type 1 JDBC-ODBC Bridge Driver
+    -Type 2 Native - API Partly Java Driver
+    -Type 3 Network Protocol Pure Java Driver
+    -Type 4 Thin Driver(also known as the Direct to Database Pure Java Driver)
+
+JDBC-ODBC Bridge Driver:
+    -   Oldest
+    -   Poor peroformance 
+
+Native API Partly Java Driver:
+    - belongs to mainly the vendor i.e. Oracle, IBM
+
+Network Protocol Driver:
+    -   Better than type 1 and type 2
+    -   It has an extra layer called middleware
+    -   Database and client are connected via the middleware 
+
+Thin Driver:
+    -   Currently this is the standard being used
+    -   Directly converts the Native API calls to DB call
+    -   Most efficient
+
+JDBC Compoments:
+    -   DriverManager Class
+    -   Connection interface
+    -   Statement or Prepared Statement interfaces
+    -   ResultSet interface
+
+CRUD - CREATE, READ, UPDATE, DELETE OPERATIONS
+
+
+Batch Processing - addBatch method
+statement.addBatch(query); - to add the data to a batch, query is passed
+to execute the batch - executeBatch() -> it is in an array type
+
+Same method is available in preparedStatements as well!
+preparedStatement.addBatch(); -> query is not passed !
+
+Transaction Handling :
+    Data Consistency -> Transaction are consistent in the database throughout the cycle - debit/credit amount
+    connection.commit() -> by default this is set to TRUE in Java
+    connection.rollback()
+
